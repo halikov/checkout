@@ -5,52 +5,57 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout</title>
+
+  <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
+<body class="body">
 
   <div class="wrapper">
     <h1 class="title">Get unlimited access to&nbsp;everything</h1>
 
-    <form action="url" method="GET">
-      <div class="plans">
+    <form class="form" action="url" method="GET">
+      <div class="form__plans">
         <fieldset>
-          <label class="plans__label" for="monthly">
+          <div class="plans">
             <input class="plans__field" type="radio" name="plan" id="monthly">
-            <div>
-              Monthly
-              <span>$7/month</span>
-            </div>
-          </label>
-          <label class="plans__label" for="yearly">
-            <input class="plans__field" type="radio" name="plan" id="yearly">
-            <div>
-              Yearly
-              <span class="flag">Save $10</span>
-              <span>$50/month</span>
-            </div>
-          </label>
-        </fieldset>
-      </div> <!-- // .plans -->
+            <label class="plans__label plan" for="monthly">
+              <span class="plan__radio"></span>
+              <span class="plan__period">Monthly</span>
+              <span class="plan__price">$7/month</span>
+            </label>
 
-      <div class="card form__card">
-        <h2 class="card__title">Total billed $50</h2>
-        <p>Enter your credit card details to&nbsp;complete subscription</p>
-        <fieldset>
-          <label for="card-num">
-            <span>Card number</span>
-            <input type="text" name="number" id="card-num">
-          </label>
-          <label for="term">
-            <span>Expiration date</span>
-            <input type="text" name="term" id="term">
-          </label>
-          <label for="code">
-            <span>Security code</span>
-            <input type="text" name="code" id="code">
-          </label>
+            <input class="plans__field" type="radio" name="plan" id="yearly">
+            <label class="plans__label plan" for="yearly">
+              <span class="plan__radio"></span>
+              <span class="plan__period">Yearly</span>
+              <span class="flag">Save $10</span>
+              <span class="plan__price">$50/month</span>
+            </label>
+          </div> <!-- // .plans -->
         </fieldset>
       </div>
-      <p class="egreement">By&nbsp;subscribing you agree to&nbsp;our Use of&nbsp;Service. Your payment method will be&nbsp;charged with $50 and you&rsquo;ll have access to&nbsp;all locked features until 20&nbsp;Jan 2022.</p>
+
+      <div class="form__card">
+        <h2 class="card__title">Total billed $50</h2>
+        <p class="card__text">Enter your credit card details to&nbsp;complete subscription</p>
+        <fieldset>
+          <div class="card">
+            <label class="card__label card__label--number" for="card-num">
+              <span class="card__label-name">Card number</span>
+              <input class="card__field" type="text" name="number" id="card-num" placeholder="1234  1234   1234   1234">
+            </label>
+            <label class="card__label card__label--term" for="term">
+              <span class="card__label-name">Expiration date</span>
+              <input class="card__field" type="text" name="term" id="term" placeholder="MM/YY">
+            </label>
+            <label class="card__label card__label--code" for="code">
+              <span class="card__label-name">Security code</span>
+              <input class="card__field" type="text" name="code" id="code" placeholder="123">
+            </label>
+          </div>
+        </fieldset>
+      </div>
+      <p class="agreement">By&nbsp;subscribing you agree to&nbsp;our Use of&nbsp;Service. Your payment method will be&nbsp;charged with $50 and you&rsquo;ll have access to&nbsp;all locked features until 20&nbsp;Jan 2022.</p>
 
       <button class="form__btn btn" type="submit">
         Pay now
