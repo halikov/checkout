@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+</head>
+<body>
+
+  <div class="wrapper">
+    <h1 class="title">Get unlimited access to&nbsp;everything</h1>
+
+    <form action="url" method="GET">
+      <div class="plans">
+        <fieldset>
+          <label class="plans__label" for="monthly">
+            <input class="plans__field" type="radio" name="plan" id="monthly">
+            <div>
+              Monthly
+              <span>$7/month</span>
+            </div>
+          </label>
+          <label class="plans__label" for="yearly">
+            <input class="plans__field" type="radio" name="plan" id="yearly">
+            <div>
+              Yearly
+              <span class="flag">Save $10</span>
+              <span>$50/month</span>
+            </div>
+          </label>
+        </fieldset>
+      </div> <!-- // .plans -->
+
+      <div class="card form__card">
+        <h2 class="card__title">Total billed $50</h2>
+        <p>Enter your credit card details to&nbsp;complete subscription</p>
+        <fieldset>
+          <label for="card-num">
+            <span>Card number</span>
+            <input type="text" name="number" id="card-num">
+          </label>
+          <label for="term">
+            <span>Expiration date</span>
+            <input type="text" name="term" id="term">
+          </label>
+          <label for="code">
+            <span>Security code</span>
+            <input type="text" name="code" id="code">
+          </label>
+        </fieldset>
+      </div>
+      <p class="egreement">By&nbsp;subscribing you agree to&nbsp;our Use of&nbsp;Service. Your payment method will be&nbsp;charged with $50 and you&rsquo;ll have access to&nbsp;all locked features until 20&nbsp;Jan 2022.</p>
+
+      <button class="form__btn btn" type="submit">
+        Pay now
+      </button>
+    </form>
+
+  </div>
+  
+</body>
+</html>
