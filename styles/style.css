@@ -179,6 +179,8 @@ fieldset {
 }
 
 .plans__title {
+  display: inline-flex;
+  flex-wrap: nowrap;
   font-weight: 700;
   font-size: 18px;
   line-height: 25px;
@@ -186,6 +188,9 @@ fieldset {
 }
 
 .plans__title .flag {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
   padding: 0 8px;
   font-weight: 400;
   font-size: 12px;
