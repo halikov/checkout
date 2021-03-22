@@ -63,9 +63,8 @@ fieldset {
 }
 
 .wrapper {
-  width: 693px;
-  margin: 0 auto;
-  margin-top: 100px;
+  max-width: 693px;
+  margin: 50px auto;
   padding: 80px 50px;
 
   border-radius: 10px;
@@ -91,98 +90,125 @@ fieldset {
   margin-top: 50px;
 }
 
+.form__fieldset {
+  display: block;
+  max-width: 100%;
+}
+
 .form__plans {
   width: 100%;
 }
+/* Plans */
 
 .plans {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  gap: 15px;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+
   margin-bottom: 60px;
 }
 
-.plans__label + .plans__label {
-  margin-left: 15px;
-}
-
-.plans__label {
-  flex-grow: 1;
-  display: block;
-  padding: 15px 20px;
-}
-
-.plans__field {
+.plans__radio {
+  margin: 0;
+  padding: 0;
   appearance: none;
-  display: none;
+  opacity: 0;
 }
 
-.plan {
+.plans__item {
+  flex-grow: 1;
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  width: 100%;
+  padding: 25px 20px;
+
   border: 1px solid #ced5ec;
   border-radius: 5px;
+  transition: border-color 0.25s linear, box-shadow 0.25s linear;
 }
 
-.plan__radio {
+.plans__item:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+
+.plans__radio:checked + .plans__item {
+  border-color: #5f82ff;
+  box-shadow: 0px 24px 24px -15px rgba(95, 130, 255, 0.15);
+}
+
+.plans__radio:checked + .plans__item > .plans__icon::after {
+  background-color: #5f82ff;
+}
+
+.plans__icon {
   position: relative;
   display: block;
   width: 30px;
   height: 30px;
-  border-radius: 100%;
+  margin-right: 15px;
+
   border: 1px solid #ced5ec;
+  border-radius: 100%;
 }
 
-.plan__radio::after {
+.plans__icon::after {
   position: absolute;
   top: 50%;
   left: 50%;
-  display: block;
   content: "";
+  display: block;
   width: 18px;
   height: 18px;
-  background-color: #ffffff;
+
   border-radius: 100%;
+  background-color: #ffffff;
+
   transform: translate(-50%, -50%);
+  transition: background-color 0.25s linear;
 }
 
-.plans__field:checked + .plans__label > .plan__radio::after {
-  background-color: #5f82ff;
-}
-
-.plans__field:checked + .plans__label {
-  box-shadow: 0px 24px 24px -15px rgba(95, 130, 255, 0.15);
-}
-
-.flag {
+.plans__text {
   display: flex;
-  align-items: center;
-  padding: 2px 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
 
+.plans__title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: #000000;
+}
+
+.plans__title .flag {
+  padding: 0 8px;
+  font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  color: #5f82ff;
 
+  color: #5f82ff;
   background: #f4f6fd;
   border-radius: 3px;
 }
 
-.plan__period {
-  display: block;
-  margin-left: 15px;
-
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 25px;
+.plans__price {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
 }
 
-.plan__price {
-  display: block;
-}
 /* Card */
 
 .form__card {
+  width: 100%;
+}
+
+.form__card-wrapper {
   width: 100%;
 }
 
@@ -200,20 +226,20 @@ fieldset {
 }
 
 .card__label--term {
-  grid-column: 1 / 2;
+  grid-column: 1 / -1;
 }
 
 .card__label--code {
-  grid-column: 2 / -1;
+  grid-column: 1 / -1;
 }
 
-.card__title {
+.form__card-title {
   font-weight: 700;
   font-size: 22px;
   line-height: 30px;
 }
 
-.card__text {
+.form__card-text {
   margin: 0;
   margin-bottom: 40px;
   font-size: 16px;
@@ -233,6 +259,7 @@ fieldset {
 }
 
 .card__field {
+  width: 100%;
   padding: 25px;
 
   font-weight: 400;
@@ -264,7 +291,7 @@ fieldset {
   display: block;
   width: 100%;
   margin-top: 25px;
-  padding: 45px;
+  padding: 20px;
 
   font-weight: 700;
   font-size: 18px;
@@ -274,4 +301,37 @@ fieldset {
 
   background: #5f82ff;
   border-radius: 5px;
+}
+
+@media (min-width: 530px) {
+  .plans {
+    flex-direction: row;
+  }
+
+  .plans__item {
+    width: calc((100% / 2) - 7.5px);
+  }
+
+  .plans__item:not(:last-of-type) {
+    margin-right: 15px;
+    margin-bottom: 0;
+  }
+
+  .card__label--number {
+    grid-column: 1 / -1;
+  }
+
+  .card__label--term {
+    grid-column: 1 / 2;
+  }
+
+  .card__label--code {
+    grid-column: 2 / -1;
+  }
+}
+
+@media (min-width: 768px) {
+  .form__btn {
+    padding: 40px;
+  }
 }
